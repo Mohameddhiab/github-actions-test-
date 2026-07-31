@@ -1,4 +1,4 @@
-EXPECTED="hello,Test !"
+EXPECTED="hello, Test!"
 ACTUAL=$(node -e "console.log(require('./src/app.js')('Test'))")
 EXPECTED_SHOUT="HELLO, TEST!"
 ACTUAL_SHOUT=$(node -e "console.log(require('./src/app.js').shout('Test'))")
