@@ -1,0 +1,18 @@
+{
+    "name": "github-actions-test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/app.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/app.js",
+        "test": "bash ./src/test.sh"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^20.14.10",
+        "typescript": "^5.9.3"
+    }
+}
