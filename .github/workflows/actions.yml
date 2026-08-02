@@ -1,0 +1,35 @@
+on:
+    workflow_dispatch
+
+jobs:
+    actions-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4.2.2
+            - name: my action
+              uses: ./.github/actions/my-action
+              with:
+                name: Mohamed
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    hybrid_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run a command in ubuntu VM
+              run: echo "this runs on the ubuntu VM "
+            - name: Run inside an Alpine container
+              uses: docker://alpine:3.22 # the image must be accessible without authentication
+              with:
+                entrypoint: /bin/sh
+                args: -c "echo 'hello world from inside alpine'"
+            - name: Run another command in ubuntu VM
+              run: echo 'this is the second command'
+    dockerized_job:
+      runs-on: ubuntu-latest
+      container:
+        image: node:22
+      steps:
+        - run: node --version
+        - run: echo "this whole job runs  inside a node.js contanier"
+        
