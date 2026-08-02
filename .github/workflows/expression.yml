@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 jobs:
   expressions:
-  steps:
-   - name: Print a message 
-    run: echo "the job is running "
-    if: ${{ github.even_name == 'push' || github.ref == 'refs/head/main' }}
+   steps:
+    - name: Print a message 
+     run: echo "the job is running "
+     if: ${{ github.even_name == 'push' || github.ref == 'refs/head/main' }}
