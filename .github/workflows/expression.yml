@@ -1,8 +1,10 @@
 on:
   workflow_dispatch:
+permissions: {}
 jobs:
   expressions:
-     steps:
-      - name: Print a message 
-      run: echo "the job is running "
-      if: ${{ github.even_name == 'push' || github.ref == 'refs/head/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a message
+        run: echo "the job is running "
+        if: ${{ github.event_name == 'push' || github.ref == 'refs/heads/main' }}
